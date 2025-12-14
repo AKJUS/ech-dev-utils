@@ -85,6 +85,33 @@ SKIPEM="no"
 if [[ "$SKIPEM" != "yes" ]]
 then
 
+# A test where we do split-mode until it fails
+# Trun this on manually if needed (when we're debugging
+# split-mode if it's not working:-)
+JUSTSPLIT="no"
+if [[ "$JUSTSPLIT" == "yes" ]]
+then
+    iter=0
+    while true
+    do
+        iter=$((iter+1))
+        for type in real hrr
+        do
+            echo "Doing iter $iter type $type"
+            cli_test 7446 $type
+            if [[ "$allgood" != "yes" ]]
+            then
+                break
+            fi
+        done
+        if [[ "$allgood" != "yes" ]]
+        then
+            break
+        fi
+    done
+    exit 0
+fi
+
 # all these should appear the same to the client
 # server log checks will tell us if stuff worked or not
 echo "Doing split-mode tests..."
