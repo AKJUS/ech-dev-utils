@@ -20,7 +20,7 @@
 : ${tout:="5s"}
 
 # you have to prepare a virtual env to run this, instructions below
-: ${pbin:="/home/sftcd/ptest/env/bin/python /home/sftcd/code/defo-project-org/ech-dev-utils/scripts/ech_url.py"}
+: ${pbin:="/home/sftcd/pt/env/bin/python /home/sftcd/code/defo-project-org/ech-dev-utils/scripts/ech_url.py"}
 
 # to make a virtual env in $HOME/ptest:
 # first install our debian python3.13 package
