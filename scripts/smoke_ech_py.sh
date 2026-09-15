@@ -22,14 +22,14 @@
 # you have to prepare a virtual env to run this, instructions below
 : ${pbin:="/home/sftcd/pt/env/bin/python /home/sftcd/code/defo-project-org/ech-dev-utils/scripts/ech_url.py"}
 
-# to make a virtual env in $HOME/ptest:
+# to make a virtual env in $HOME/pt:
 # first install our debian python3.13 package
 # see https://github.com/defo-project/cpython/blob/packages/README.md
 # once you've added the apt source then `apt update; apt install python3.13`
 # and then:
-#   $ mkdir $HOME/ptest
-#   $ cd $HOME/ptest
-#   $ python3.13 -m venv env
+#   $ mkdir $HOME/pt
+#   $ cd $HOME/pt
+#   $ python3.15 -m venv env
 #   $ . ./env/bin/activate
 #   (venv)$ pip install dnspython httptools
 
@@ -174,7 +174,7 @@ echo "Running $0 at $NOW"  >>$logfile
 echo "Running $0 at $NOW"
 
 # output python version to verfile
-/home/sftcd/ptest/env/bin/python --version >>$verfile
+/home/sftcd/pt/env/bin/python --version >>$verfile
 
 # start of HTML
 echo "<table border=\"1\" style=\"width:80%\">" >>$tabfile
