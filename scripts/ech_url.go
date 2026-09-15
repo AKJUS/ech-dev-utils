@@ -1,6 +1,9 @@
 // This is modified from a code snippet by Arturo Filastra
 // https://github.com/hellais/ech.git
 
+// This is now obsoleted (and doesn't work anymore anyway:-)
+// We're now using the httpclient from https://github.com/c2FmZQ/ech
+
 package main
 
 import (

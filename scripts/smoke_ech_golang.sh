@@ -24,7 +24,8 @@
 
 # time to wait for a remote access to work, 10 seconds
 : ${tout:="5s"}
-: ${golangscript="$HOME/code/defo-project-org/ech-dev-utils/scripts/ech_url.go"}
+: ${golangscript="example/httpclient/main.go -require-ech "}
+: ${gosdir="$HOME/code/golang-safe-ech/"}
 : ${golangbin="/usr/bin/go"}
 
 
@@ -160,7 +161,7 @@ echo "Running $0 at $NOW"
 
 # output golang version to verfile
 $golangbin version >>$verfile
-echo "ECH golang script: $golangscript" >>$verfile
+echo "ECH golang script: $gosdir/$golangscript" >>$verfile
 
 # start of HTML
 echo "<table border=\"1\" style=\"width:80%\">" >>$tabfile
@@ -198,8 +199,10 @@ then
         # echo "Checking $targ"
         echo "Checking $targ" >>$logfile
         # timeout $tout $golangbin run $golangscript $targ
-        timeout $tout $golangbin run $golangscript --url $targ > "$host.$port.out" 
+        cd $gosdir
+        timeout $tout $golangbin run $golangscript $targ > "$host.$port.out" 
         cres=$?
+        cd -
         if [[ "$cres" == "124" ]] 
         then
             allgood="no"
